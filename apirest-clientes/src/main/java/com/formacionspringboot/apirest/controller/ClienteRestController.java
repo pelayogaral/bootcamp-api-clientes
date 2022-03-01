@@ -35,7 +35,7 @@ public class ClienteRestController {
 		return servicio.findById(id);
 	}
 	
-	@PostMapping("/cliente")
+	@PostMapping("/cliente")//Comentario
 	@ResponseStatus(HttpStatus.CREATED)
 	public Cliente saveCliente(@RequestBody Cliente cliente)
 	{
