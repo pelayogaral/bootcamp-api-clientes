@@ -20,14 +20,19 @@ public class Cliente{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(nullable=false)
 	private String nombre;
 	private String apellido;
+	@Column(nullable=false, unique=true)
 	private String email;
+	
 	private int telefono;
 	
 	@Column(name="create_at")
 	@Temporal(TemporalType.DATE)//Importante anotacion para que lo traduzca como un Date
 	private Date createdAt;
+	
+	private String imagen;
 	
 	//Cada vez que la superclase es llamada para crear el objeto, realizara esta opcion en nuestro caso para asignar la fecha de creación del elemento
 	@PrePersist
@@ -39,6 +44,14 @@ public class Cliente{
 		}
 	}
 	
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
 	public Long getId() {
 		return id;
 	}
